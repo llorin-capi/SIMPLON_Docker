@@ -1,9 +1,9 @@
-## Initiation à Docker
+# Initiation à Docker
 
-# Phase 1 : Veille et Installation
+## Phase 1 : Veille et Installation
 voir la [veille technique](veille_docker.pdf)
 
-# Phase 2 : Création et Gestion de Conteneurs
+## Phase 2 : Création et Gestion de Conteneurs
 
 * Lancez un conteneur Ubuntu en mode interactif et explorez les commandes Linux dans ce conteneur
 ```
@@ -33,12 +33,25 @@ echo "Bonjour" > /data/fichier_persistant.txt                        # Ajout d'u
 exit
 docker run -it --name autre_conteneur -v mon_volume:/data ubuntu     # Création d'un second conteneur avec le même volume
 ```
-En regardant dans les files du conteneur, on a 
+En regardant dans les files des deuxx conteneurs dans le Docker Desktop, on retrouve bien le dossier data avec le fichier texte créé dans chacun des conteneurs.
 
-Créez un réseau Docker et connectez deux conteneurs (par exemple, un serveur et un client simple). Testez la communication entre eux avec une commande simple, comme ping
-​
+* Créer un réseau Docker et connectez deux conteneurs. Testez la communication entre eux avec une commande simple, comme ping.
+```
+docker network create mon_reseau                                              # Création du réseau
+docker run -d --name serveur --network mon_reseau ubuntu tail -f /dev/null    # 
+docker run -d --name client --network mon_reseau ubuntu tail -f /dev/null     # 
+```
+​Attention!! ping n'existe pas sur Ubuntu! il est nécessaire d'installer iputils-ping
+```
+apt update
+apt install -y iputils-ping
+```
+On peut ensuite utiliser ping avec la commande :
+```
+docker exec client ping serveur
+```
 
-Phase 3 : Création d’Images et Déploiement d’Application
+## Phase 3 : Création d’Images et Déploiement d’Application
 
 Rédigez un Dockerfile pour créer une image de base Python contenant des bibliothéques spécifiques (ex : pandas)
 Construisez l’image avec la commande docker build
@@ -47,7 +60,7 @@ Testez l’application localement en accédant à l’API via le navigateur.
 Ajoutez un fichier requirements.txt à votre projet pour gérer les bibliothèques Python, et modifiez le Dockerfile pour installer automatiquement ces dépendances.
 ​
 
-Phase 4 : Projet de Déploiement en Conditions Réelles
+## Phase 4 : Projet de Déploiement en Conditions Réelles
 
 Mettez un modèle en conteneur avec Docker et exposez une API pour effectuer des prédictions. (Brief précédent)
 Configurez un volume pour stocker les données de requêtes (par ex., sauvegarder les prédictions et les résultats)
