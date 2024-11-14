@@ -53,15 +53,19 @@ docker exec client ping serveur
 ```
 
 ## Phase 3 : Création d’Images et Déploiement d’Application
-
-Rédigez un Dockerfile pour créer une image de base Python contenant des bibliothéques spécifiques (ex : pandas)
-Construisez l’image avec la commande docker build
-Intégrez une application Flask simple dans un conteneur. Cette application doit exposer une API de base qui renvoie un message.
-Testez l’application localement en accédant à l’API via le navigateur.
-Ajoutez un fichier requirements.txt à votre projet pour gérer les bibliothèques Python, et modifiez le Dockerfile pour installer automatiquement ces dépendances.
+* Création d'un [Dockerfile](dockerfile) pour créer une image de base Python
+* Création d'un fichier [requirements](requirements.txt)
+* Création d'une application Flask dans un fichier [app.py](app.py)
+* Construction de l'image avec la commande docker build
+```
+docker build -t mon_image_flask .
+```
+* Exécution du conteneur puis test de l'application en local
+```
+docker run -d -p 5000:5000 --name mon_conteneur_flask mon_image_flask
+```
+Attention à bien vérifier que le conteneur est actif, puis se connecter à [localhost:5000](http://localhost:5000).
 ​
-
 ## Phase 4 : Projet de Déploiement en Conditions Réelles
-
 Mettez un modèle en conteneur avec Docker et exposez une API pour effectuer des prédictions. (Brief précédent)
 Configurez un volume pour stocker les données de requêtes (par ex., sauvegarder les prédictions et les résultats)
