@@ -4,7 +4,7 @@
 voir la [veille technique](veille_docker.pdf)
 
 ## Phase 2 : Création et Gestion de Conteneurs
-
+Après avoir ouvert un terminal dans VisualCode, on peut utiliser les commandes suivantes pour :
 * Lancez un conteneur Ubuntu en mode interactif et explorez les commandes Linux dans ce conteneur
 ```
 docker run -it ubuntu
@@ -33,13 +33,14 @@ echo "Bonjour" > /data/fichier_persistant.txt                        # Ajout d'u
 exit
 docker run -it --name autre_conteneur -v mon_volume:/data ubuntu     # Création d'un second conteneur avec le même volume
 ```
-En regardant dans les files des deuxx conteneurs dans le Docker Desktop, on retrouve bien le dossier data avec le fichier texte créé dans chacun des conteneurs.
+En regardant dans les files des deux conteneurs dans le Docker Desktop, on retrouve bien le dossier data avec le fichier texte créé dans chacun des conteneurs:
+(capture-docker-ph2.png)
 
 * Créer un réseau Docker et connectez deux conteneurs. Testez la communication entre eux avec une commande simple, comme ping.
 ```
 docker network create mon_reseau                                              # Création du réseau
-docker run -d --name serveur --network mon_reseau ubuntu tail -f /dev/null    # 
-docker run -d --name client --network mon_reseau ubuntu tail -f /dev/null     # 
+docker run -d --name serveur --network mon_reseau ubuntu tail -f /dev/null    # Création du premier conteneur
+docker run -d --name client --network mon_reseau ubuntu tail -f /dev/null     # Création du second conteneur
 ```
 ​Attention!! ping n'existe pas sur Ubuntu! il est nécessaire d'installer iputils-ping
 ```
