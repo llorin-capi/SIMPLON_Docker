@@ -34,7 +34,7 @@ exit
 docker run -it --name autre_conteneur -v mon_volume:/data ubuntu     # Création d'un second conteneur avec le même volume
 ```
 En regardant dans les files des deux conteneurs dans le Docker Desktop, on retrouve bien le dossier data avec le fichier texte créé dans chacun des conteneurs:
-(capture-docker-ph2.png)
+![Fichiers du conteneur autre_conteneur](capture-docker-ph2.png)
 
 * Créer un réseau Docker et connectez deux conteneurs. Testez la communication entre eux avec une commande simple, comme ping.
 ```
