@@ -4,7 +4,7 @@
 Apprendre à utiliser Docker.
 
 # Phase 1 : Veille et Installation
-voir (la veille technique)[Veille technique Docker.pdf]
+voir la [veille technique](Veille technique Docker.pdf)
 Question de veille :
 
 Qu'est-ce qu'une machine virtuelle ?
