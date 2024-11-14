@@ -4,24 +4,17 @@
 Apprendre à utiliser Docker.
 
 # Phase 1 : Veille et Installation
-voir la [veille technique](Veille technique DOCKER.pdf)
-Question de veille :
+voir la [veille technique](veille_docker.pdf)
 
-Qu'est-ce qu'une machine virtuelle ?
-Quelle est la difference entre une machine virtuelle et un conteneur ?
-Qu'est-ce que Docker ? Qu'est-ce que la conteneurisation ?
-Quels sont les avantages de la conteneurisation ?
-Qu'est-ce qu'une image Docker, quelles differences avec un conteneur ?
-Qu'est-ce qu'un Dockerfile ?
-​
+# Phase 2 : Création et Gestion de Conteneurs
 
-Installez Docker Desktop (ou WSL2 et Docker Engine ), et découvrez les premières commandes Docker.
+Lancez un conteneur Ubuntu en mode interactif et explorez les commandes Linux dans ce conteneur (ex : créer un fichier, lister les répertoires).
+```
+docker run -it ubuntu
 
-​
 
-Phase 2 : Création et Gestion de Conteneurs
+```
 
-Lancez un conteneur Ubuntu en mode interactif (docker run -it ubuntu) et explorez les commandes Linux dans ce conteneur (ex : créer un fichier, lister les répertoires).
 Utilisez docker exec pour exécuter une commande dans un conteneur en cours d’exécution.
 Utilisez docker logs pour récupérer les logs d’un conteneur et docker rm pour supprimer un conteneur arrêté.
 Montez un volume dans un conteneur et créez un fichier dans le volume pour observer la persistance des données après l’arrêt du conteneur.
